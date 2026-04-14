@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>דרושים חיפה – מנהל/ת חשבונות</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== REPLACE THIS URL WITH YOUR FORMSPREE ENDPOINT ===== */
+    /* Look for: action="YOUR_FORMSPREE_URL_HERE" in the <form> tag */
+
+    :root {
+      --blue: #2B7EC1;
+      --blue-dark: #1a5f9a;
+      --blue-light: #e8f3fc;
+      --orange: #E88C1A;
+      --white: #ffffff;
+      --bg: #f5f7fa;
+      --text: #1a1f2e;
+      --muted: #6b7280;
+      --border: #e2e8f0;
+      --radius: 14px;
+      --shadow: 0 4px 24px rgba(43, 126, 193, 0.10);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Heebo', sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+      color: var(--text);
+      direction: rtl;
+    }
+
+    .header {
+      background: var(--white);
+      padding: 18px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .logo-text { display: flex; flex-direction: column; line-height: 1; }
+    .logo-text span:first-child { font-size: 22px; font-weight: 800; color: var(--blue); letter-spacing: -0.5px; }
+    .logo-text span:last-child  { font-size: 22px; font-weight: 800; color: var(--orange); letter-spacing: -0.5px; }
+
+    .header-tag {
+      background: var(--blue-light);
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(43,126,193,0.2);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+      padding: 52px 24px 44px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -60px; left: -60px;
+      width: 220px; height: 220px; border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+    }
+    .hero::after {
+      content: ''; position: absolute; bottom: -80px; right: -40px;
+      width: 280px; height: 280px; border-radius: 50%;
+      background: rgba(232,140,26,0.12);
+    }
+
+    .hero-label {
+      display: inline-block;
+      background: rgba(232,140,26,0.2);
+      color: #ffd080;
+      font-size: 12px; font-weight: 700; letter-spacing: 1px;
+      padding: 5px 14px; border-radius: 20px;
+      border: 1px solid rgba(232,140,26,0.35);
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      color: #fff;
+      font-size: clamp(28px, 6vw, 44px);
+      font-weight: 800; line-height: 1.15;
+      margin-bottom: 10px;
+      position: relative; z-index: 1;
+    }
+    .hero h1 em { font-style: normal; color: #ffc660; }
+
+    .hero-sub {
+      color: rgba(255,255,255,0.75);
+      font-size: 15px;
+      position: relative; z-index: 1;
+    }
+
+    .pills {
+      display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+      padding: 18px 24px;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+    .pill {
+      display: flex; align-items: center; gap: 6px;
+      background: var(--bg); border: 1px solid var(--border);
+      color: var(--muted); font-size: 13px; font-weight: 500;
+      padding: 6px 14px; border-radius: 20px;
+    }
+    .pill .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--orange); flex-shrink: 0;
+    }
+
+    .main { max-width: 680px; margin: 0 auto; padding: 40px 20px 80px; }
+
+    .card {
+      background: var(--white); border-radius: 20px;
+      box-shadow: var(--shadow); overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .card-header {
+      padding: 26px 32px 20px;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(to left, var(--blue-light), #fff);
+    }
+    .card-header h2 { font-size: 19px; font-weight: 700; color: var(--blue-dark); }
+    .card-header p  { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+    .card-body { padding: 32px; }
+
+    .form-group { margin-bottom: 22px; }
+
+    label { display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 7px; }
+    label .req { color: var(--orange); margin-right: 2px; }
+
+    .input-wrap { position: relative; }
+    .input-wrap .ico {
+      position: absolute; right: 14px; top: 50%;
+      transform: translateY(-50%);
+      color: #b0bac9; pointer-events: none;
+      display: flex; align-items: center;
+    }
+
+    input[type="text"],
+    input[type="tel"] {
+      width: 100%;
+      padding: 13px 44px 13px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      font-family: 'Heebo', sans-serif;
+      font-size: 15px; color: var(--text);
+      background: #fafbfc; outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+      direction: rtl;
+    }
+    input:focus {
+      border-color: var(--blue); background: #fff;
+      box-shadow: 0 0 0 3px rgba(43,126,193,0.12);
+    }
+    input::placeholder { color: #c4cad6; }
+
+    .file-zone {
+      border: 2px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 32px 20px; text-align: center;
+      background: #fafbfc; cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      position: relative;
+    }
+    .file-zone:hover, .file-zone.dragover {
+      border-color: var(--blue); background: var(--blue-light);
+    }
+    .file-zone input[type="file"] {
+      position: absolute; inset: 0; opacity: 0;
+      cursor: pointer; width: 100%; height: 100%;
+    }
+
+    .upload-icon-wrap {
+      width: 48px; height: 48px;
+      background: var(--blue-light); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 14px; color: var(--blue);
+    }
+
+    .file-zone h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .file-zone p  { font-size: 12px; color: var(--muted); }
+
+    .file-zone .types {
+      display: flex; gap: 6px; justify-content: center;
+      margin-top: 12px; flex-wrap: wrap;
+    }
+    .type-badge {
+      background: var(--white); border: 1px solid var(--border);
+      color: var(--muted); font-size: 11px; font-weight: 600;
+      padding: 3px 9px; border-radius: 6px;
+    }
+
+    .file-selected {
+      display: none; align-items: center; gap: 10px;
+      padding: 12px 16px; background: var(--blue-light);
+      border-radius: 10px; margin-top: 10px;
+      border: 1px solid rgba(43,126,193,0.2);
+    }
+    .file-selected.visible { display: flex; }
+    .file-selected .file-name {
+      font-size: 13px; font-weight: 500; color: var(--blue-dark);
+      flex: 1; text-align: right;
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .remove-file {
+      background: none; border: none; cursor: pointer;
+      color: var(--muted); display: flex; align-items: center;
+      transition: color 0.15s;
+    }
+    .remove-file:hover { color: #e53e3e; }
+
+    .divider {
+      display: flex; align-items: center; gap: 12px;
+      color: var(--muted); font-size: 12px; font-weight: 600;
+      letter-spacing: 0.4px; margin: 28px 0;
+    }
+    .divider::before, .divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+
+    .btn-submit {
+      width: 100%; padding: 16px;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+      color: #fff; font-family: 'Heebo', sans-serif;
+      font-size: 17px; font-weight: 700;
+      border: none; border-radius: var(--radius); cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s, opacity 0.2s;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .btn-submit:hover { transform: translateY(-1px); box-shadow: 0 8px 28px rgba(43,126,193,0.35); }
+    .btn-submit:active { transform: translateY(0); }
+    .btn-submit.loading { opacity: 0.7; pointer-events: none; }
+
+    .spinner {
+      display: none; width: 18px; height: 18px;
+      border: 2px solid rgba(255,255,255,0.35);
+      border-top-color: #fff; border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    .btn-submit.loading .spinner { display: block; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .privacy-note {
+      text-align: center; font-size: 11px;
+      color: var(--muted); margin-top: 14px; line-height: 1.6;
+    }
+
+    .success-screen {
+      display: none; padding: 60px 32px; text-align: center;
+      flex-direction: column; align-items: center;
+    }
+    .success-screen.visible { display: flex; }
+
+    .success-circle {
+      width: 64px; height: 64px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px; box-shadow: 0 8px 24px rgba(34,197,94,0.3);
+      animation: pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    @keyframes pop { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+    .success-screen h2 { font-size: 22px; font-weight: 800; color: var(--text); margin-bottom: 8px; }
+    .success-screen p  { font-size: 15px; color: var(--muted); line-height: 1.7; }
+
+    .footer { text-align: center; padding: 24px; color: var(--muted); font-size: 12px; }
+    .footer a { color: var(--blue); text-decoration: none; }
+
+    @media (max-width: 480px) {
+      .card-body { padding: 24px 18px; }
+      .hero { padding: 40px 16px 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo-text">
+      <span>דרושים</span>
+      <span>חיפה</span>
+    </div>
+    <div class="header-tag">הזדמנויות עבודה מובילות</div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-label">משרה פתוחה &middot; חיפה</div>
+    <h1>מנהל/ת <em>חשבונות</em></h1>
+    <p class="hero-sub">מלאו את הטופס ונחזור אליכם בהקדם</p>
+  </section>
+
+  <div class="pills">
+    <div class="pill"><span class="dot"></span>משרה מלאה</div>
+    <div class="pill"><span class="dot"></span>חיפה</div>
+    <div class="pill"><span class="dot"></span>שכר טוב למתאימים</div>
+    <div class="pill"><span class="dot"></span>ניסיון נדרש</div>
+  </div>
+
+  <main class="main">
+    <div class="card">
+      <div class="card-header">
+        <h2>שלחו קורות חיים</h2>
+        <p>כל השדות המסומנים ב־* הם חובה</p>
+      </div>
+      <div class="card-body">
+
+        <form id="applyForm"
+              action="YOUR_FORMSPREE_URL_HERE"
+              method="POST"
+              enctype="multipart/form-data">
+
+          <div class="form-group">
+            <label for="name"><span class="req">*</span> שם מלא</label>
+            <div class="input-wrap">
+              <span class="ico">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/>
+                </svg>
+              </span>
+              <input type="text" id="name" name="name" placeholder="ישראל ישראלי" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="city"><span class="req">*</span> עיר מגורים</label>
+            <div class="input-wrap">
+              <span class="ico">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+                </svg>
+              </span>
+              <input type="text" id="city" name="city" placeholder="חיפה, קריות, עמק..." required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="phone"><span class="req">*</span> טלפון</label>
+            <div class="input-wrap">
+              <span class="ico">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </span>
+              <input type="tel" id="phone" name="phone" placeholder="05X-XXX-XXXX" required pattern="[0-9\-\s\+]{9,15}" />
+            </div>
+          </div>
+
+          <div class="divider">העלאת קורות חיים</div>
+
+          <div class="form-group">
+            <label>קורות חיים <span style="color:var(--muted);font-weight:400;">(PDF, Word, תמונה)</span></label>
+            <div class="file-zone" id="fileZone">
+              <input type="file" id="cvFile" name="cv"
+                     accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp"
+                     onchange="handleFile(this)" />
+              <div class="upload-icon-wrap">
+                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                </svg>
+              </div>
+              <h3>לחצו לבחירת קובץ</h3>
+              <p>או גררו לכאן</p>
+              <div class="types">
+                <span class="type-badge">PDF</span>
+                <span class="type-badge">DOC</span>
+                <span class="type-badge">DOCX</span>
+                <span class="type-badge">JPG</span>
+                <span class="type-badge">PNG</span>
+              </div>
+            </div>
+
+            <div class="file-selected" id="fileSelected">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" style="color:var(--blue);flex-shrink:0">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
+                <polyline points="14 2 14 8 20 8"/>
+              </svg>
+              <span class="file-name" id="fileName">—</span>
+              <button type="button" class="remove-file" onclick="clearFile()">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-submit" id="submitBtn">
+            <div class="spinner"></div>
+            <span>שלחו קורות חיים</span>
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </button>
+          <p class="privacy-note">הפרטים שלכם נשמרים בצורה מאובטחת ולא יועברו לצד שלישי.</p>
+
+        </form>
+
+        <div class="success-screen" id="successScreen">
+          <div class="success-circle">
+            <svg width="28" height="28" fill="none" stroke="#fff" stroke-width="2.5" viewBox="0 0 24 24">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <h2>קורות החיים נשלחו</h2>
+          <p>תודה רבה.<br>נחזור אליך בהקדם.</p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <a href="https://www.facebook.com/profile.php?id=61573277861793" target="_blank">דרושים חיפה</a>
+    &middot; הזדמנויות עבודה מובילות
+  </footer>
+
+  <script>
+    function handleFile(input) {
+      const file = input.files[0];
+      if (!file) return;
+      document.getElementById('fileName').textContent = file.name;
+      document.getElementById('fileSelected').classList.add('visible');
+    }
+    function clearFile() {
+      document.getElementById('cvFile').value = '';
+      document.getElementById('fileSelected').classList.remove('visible');
+    }
+
+    const zone = document.getElementById('fileZone');
+    zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('dragover'); });
+    zone.addEventListener('dragleave', () => zone.classList.remove('dragover'));
+    zone.addEventListener('drop', e => {
+      e.preventDefault(); zone.classList.remove('dragover');
+      const dt = new DataTransfer();
+      dt.items.add(e.dataTransfer.files[0]);
+      const inp = document.getElementById('cvFile');
+      inp.files = dt.files;
+      handleFile(inp);
+    });
+
+    document.getElementById('applyForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      btn.classList.add('loading');
+      try {
+        const res = await fetch(this.action, {
+          method: 'POST',
+          body: new FormData(this),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          this.style.display = 'none';
+          document.getElementById('successScreen').classList.add('visible');
+        } else {
+          alert('אירעה שגיאה. נסו שוב.');
+          btn.classList.remove('loading');
+        }
+      } catch {
+        alert('בעיית חיבור. נסו שוב.');
+        btn.classList.remove('loading');
+      }
+    });
+  </script>
+</body>
+</html>
