@@ -380,11 +380,11 @@
           <div class="divider">העלאת קורות חיים</div>
 
           <div class="form-group">
-            <label>קורות חיים <span style="color:var(--muted);font-weight:400;">(PDF, Word, תמונה)</span></label>
+            <label>קורות חיים <span class="req">*</span> <span style="color:var(--muted);font-weight:400;">(PDF, Word, תמונה)</span></label>
             <div class="file-zone" id="fileZone">
               <input type="file" id="cvFile" name="cv"
                      accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp"
-                     onchange="handleFile(this)" />
+                     onchange="handleFile(this)" required />
               <div class="upload-icon-wrap">
                 <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
